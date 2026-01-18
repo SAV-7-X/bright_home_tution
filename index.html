@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -59,7 +59,11 @@
       label,
       ul,
       li,
-      a {
+      a,
+      input,
+      input::placeholder,
+      option,
+      select {
         font-family: "Zelando", sans-serif;
         font-weight: 400;
 
@@ -207,7 +211,8 @@
           rgba(245, 249, 255, 0.8) 100%
         );
         background-color: #fafbfc;
-        background-image: linear-gradient(
+        background-image:
+          linear-gradient(
             0deg,
             transparent 24%,
             rgba(37, 99, 235, 0.05) 25%,
@@ -261,10 +266,142 @@
         z-index: 1;
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-BO3TkI6-.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CB-fgndr.css" />
+    <script type="module" crossorigin src="./assets/index-DyMbke94.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BxyTvBo3.css">
   </head>
-  <body class="bg-white section-bg">
+  <body class="bg-white section-bg overflow-x-hidden">
+    <!-- Popup Overlay -->
+    <div
+      id="popupOverlay"
+      class="fixed inset-0 bg-black/30 flex items-center justify-center p-4 z-10 backdrop-blur-sm"
+    >
+      <!-- Popup Card with AOS fade effect -->
+      <div
+        class="bg-white rounded-lg shadow-lg w-full max-w-md"
+        data-aos="fade-up"
+        data-aos-duration="500"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between p-6 border-b border-gray-200"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800">Find a Tutor</h2>
+          <button
+            id="closeBtn"
+            class="text-gray-500 hover:text-gray-700 transition"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Form Content -->
+        <div class="p-6 space-y-5">
+          <!-- Name Input -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+              Parent's Name
+            </label>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition text-gray-800"
+            />
+          </div>
+
+          <!-- Location Dropdown -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+              Location in Lucknow
+            </label>
+            <select
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition text-gray-800 bg-white"
+            >
+              <option value="">Select an area</option>
+              <option>Aliganj</option>
+              <option>Charbagh</option>
+              <option>Gomti Nagar</option>
+              <option>Hazratganj</option>
+              <option>Indira Nagar</option>
+              <option>Kakadev</option>
+              <option>Kannada Pada</option>
+              <option>Kasturba Nagar</option>
+              <option>Krishnanagar</option>
+              <option>Lucknow Cantonment</option>
+              <option>Malviya Nagar</option>
+              <option>Naka Hindola</option>
+              <option>Nakhhas</option>
+              <option>Nirala Nagar</option>
+              <option>Patrakarpuram</option>
+              <option>Qaiserbagh</option>
+              <option>Rajajipuram</option>
+              <option>Rae Bareli Road</option>
+              <option>Sarai Husaini</option>
+              <option>Sarojini Nagar</option>
+              <option>Scheme N-2</option>
+              <option>Sector G</option>
+              <option>Shalimar</option>
+              <option>Sikandarpur</option>
+              <option>Tilak Nagar</option>
+              <option>Ashok Marg</option>
+              <option>Balaganj</option>
+              <option>Badshah Nagar</option>
+              <option>Bokaro Nagar</option>
+            </select>
+          </div>
+
+          <!-- Class Dropdown -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+              Student's Class
+            </label>
+            <select
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition text-gray-800 bg-white"
+            >
+              <option value="">Select a class</option>
+              <option>Class 1</option>
+              <option>Class 2</option>
+              <option>Class 3</option>
+              <option>Class 4</option>
+              <option>Class 5</option>
+              <option>Class 6</option>
+              <option>Class 7</option>
+              <option>Class 8</option>
+              <option>Class 9</option>
+              <option>Class 10</option>
+              <option>Class 11</option>
+              <option>Class 12</option>
+            </select>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 pt-2">
+            <button
+              id="cancelBtn"
+              class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition"
+            >
+              Cancel
+            </button>
+            <button
+              class="flex-1 px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition"
+            >
+              Submit Request
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Navbar -->
     <nav class="navbar px-4 md:px-20 lg:px-48">
       <div>
@@ -321,7 +458,9 @@
             class="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight"
           >
             Home Tutors in
-            <span class="text-yellow-500" style="font-family: 'gidole'"
+            <span
+              class="text-yellow-500"
+              style="font-family: &quot;gidole&quot;"
               >Lucknow</span
             >
             at
@@ -329,7 +468,7 @@
             <span
               class="text-blue-600"
               id="typed-element"
-              style="font-family: 'gidole'"
+              style="font-family: &quot;gidole&quot;"
               >Zero Commute</span
             >
           </h1>
@@ -346,8 +485,9 @@
             <button class="btn btn-primary text-lg px-8 py-3 smooth-transition">
               <i class="fas fa-phone"></i> Book Free Demo
             </button>
-            <button class="btn btn-outline text-lg px-8 py-3">
-              <i class="fas fa-play"></i> Watch Demo
+            <button class="btn btn-outline text-lg px-8 py-3" id="req_tutor">
+              <i class="fas fa-paper-plane"></i>
+              Request a tutor
             </button>
           </div>
 
